@@ -1,0 +1,31 @@
+baseURL = "https://go-ruby-dimail.github.io/"
+title = "go-ruby-dimail"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404"]
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[[params.phases]]
+  name = "Session & dynamic dispatch"
+  status = "ready"
+  blurb = "A `Dimail::Session` (Ruby: `Dimail::Client`) over the typed go-dimail client. One dynamic entry point — `Call(\"get_domain\", …)` — maps a snake_case operationId to the Go method via `method_missing`."
+[[params.phases]]
+  name = "Every operation"
+  status = "ready"
+  blurb = "All **91** Dimail operations are reachable: users, domains, mailboxes (v1 + v2), aliases, forwards, allows, identities, app-passwords, the `/my` self-service views, and the `/system` and `/logs` admin surface."
+[[params.phases]]
+  name = "Ruby-shaped results"
+  status = "ready"
+  blurb = "Path params are plain values, query params trailing values (omit to leave unset), a request body a Hash. Results normalise to Ruby data — a **Hash**, an **Array** of Hashes, or a scalar."
+[[params.phases]]
+  name = "Typed errors"
+  status = "ready"
+  blurb = "Any non-2xx raises `Dimail::APIError < Dimail::Error < StandardError`, carrying `#status`, the parsed `#detail`, and predicates `#not_found?` / `#unauthorized?` / `#forbidden?` / `#conflict?`."
+[[params.phases]]
+  name = "Runnable examples"
+  status = "ready"
+  blurb = "`examples/*.rb` cover login, domains, mailboxes and error handling. A Go test ties every operation the examples call back to the real generated API, so the documented Ruby surface cannot drift."
+[[params.phases]]
+  name = "rbgo binding"
+  status = "planned"
+  blurb = "`require \"dimail\"` — the thin `method_missing` shim that exposes this Session inside github.com/go-embedded-ruby (rbgo). Pending in that repo; nothing here depends on the Ruby runtime."
