@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Dark Reader repaints pages that already draw their own dark theme, as this one does: ask it to stand aside. */}}
+<meta name="darkreader-lock">
 <title>{{ .Site.Title }} — the Ruby face of the Dimail API, pure Go, no cgo</title>
 <meta name="description" content="go-ruby-dimail — the pure-Go, Ruby-runtime-independent core of the Ruby dimail gem: a client for the Dimail API (La Suite numérique) that rbgo binds as require &quot;dimail&quot;.">
 <style>
